@@ -16,6 +16,9 @@
 
 typedef char ncclNetHandle_t[NCCL_NET_HANDLE_MAXSIZE];
 
+// Transport callers must use the initialized AINIC state, not just its env knob.
+bool rcclUseAinic();
+
 ncclResult_t ncclNetInit(struct ncclComm* comm);
 ncclResult_t ncclNetFinalize(struct ncclComm* comm);
 ncclResult_t ncclNetGetDevCount(int netPluginIndex, int* nPhysDev, int* nVirtDev);

@@ -1897,7 +1897,7 @@ static ncclResult_t initTransportsRank(struct ncclComm* comm, struct ncclComm* p
     NCCLCHECKGOTO(ncclTransportTreeConnect(comm), ret, fail);
 
     // Connect PAT only for communicators with 1 GPU per node and PAT enabled
-    if (comm->maxLocalRanks == 1 && (ncclParamPatEnable() || comm->forcePatEnable))
+    if (comm->maxLocalRanks == 1 && ncclParamPatEnable())
       NCCLCHECKGOTO(ncclTransportPatConnect(comm), ret, fail);
 
     // Attempt to setup NVLS, may silently fail and disable NVLS

@@ -10,11 +10,12 @@ index 9bfd8dcf..4d3f0a08 100644
  #include "graph/xml.h"
  
  #define MAXSUFFIXSIZE 16
-@@ -110,16 +111,38 @@ struct ncclIbMergedDev ncclIbMergedDevs[MAX_IB_VDEVS];
+@@ -110,16 +111,39 @@ struct ncclIbMergedDev ncclIbMergedDevs[MAX_IB_VDEVS];
  struct ncclIbDev ncclIbDevs[MAX_IB_DEVS];
  static std::mutex ncclIbMutex;
  static int ncclIbRelaxedOrderingEnabled = 0;
 +static bool rcclAinicRoce = 0;
++bool rcclUseAinic() { return rcclAinicRoce; }
 +static bool rcclCtsInlineData = 0;
 +static bool rcclCtsOffloadEnabled = 0;
 +static bool ncclIbUseInline = 0;
